@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | PRIS Candles</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/tPXMYjJK/ammi-1.png">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen">
+
+  <!-- Gatekeeper PIN Verification (8386) -->
+  <div id="gatekeeper-modal" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[9999] flex items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl space-y-4">
+      <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Logo" class="w-12 h-12 mx-auto object-contain">
+      <h2 class="font-serif text-2xl font-bold text-white">Store Administration</h2>
+      <p class="text-xs text-zinc-400">Strictly Authorized Personnel Only</p>
+      
+      <div class="space-y-3 pt-2">
+        <input type="password" id="gatekeeper-pin" placeholder="Enter Security PIN" class="w-full text-center text-lg tracking-widest px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-700 text-amber-400 focus:outline-none focus:border-zinc-500">
+        <button onclick="verifyGatekeeper()" class="w-full py-3.5 rounded-full bg-zinc-100 hover:bg-white text-zinc-900 font-bold text-xs uppercase tracking-wider transition">
+          Unlock System
+        </button>
+      </div>
+
+      <p class="text-[10px] text-zinc-500">Authorized: trendverse87@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- Admin Main Dashboard -->
+  <div id="admin-main" class="hidden">
+    
+    <header class="bg-zinc-950 border-b border-zinc-800 px-4 sm:px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Logo" class="w-8 h-8 object-contain">
+        <div>
+          <h1 class="font-serif text-base sm:text-lg font-bold text-white">PRIS Candles Manager</h1>
+          <span class="text-[9px] text-zinc-400">Kosgoda Workshop • trendverse87@gmail.com</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 transition">
+          <i class="fa-solid fa-store mr-1"></i> Store
+        </a>
+        <button onclick="logoutAdmin()" class="px-3.5 py-1.5 rounded-full bg-red-950/80 border border-red-800 text-red-200 hover:bg-red-900 transition">
+          <i class="fa-solid fa-lock mr-1"></i> Lock
+        </button>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800">
+          <span class="text-[11px] text-zinc-400">Total Products</span>
+          <h3 id="stat-products-count" class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">6</h3>
+        </div>
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800">
+          <span class="text-[11px] text-zinc-400">Orders Received</span>
+          <h3 id="stat-orders-count" class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">0</h3>
+        </div>
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800">
+          <span class="text-[11px] text-zinc-400">Custom Inquiries</span>
+          <h3 id="stat-inq-count" class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">0</h3>
+        </div>
+        <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800">
+          <span class="text-[11px] text-zinc-400">Base Location</span>
+          <h3 class="font-serif text-base sm:text-lg font-bold text-zinc-300 mt-1">Kosgoda, SL</h3>
+        </div>
+      </div>
+
+      <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-semibold no-scrollbar">
+        <button onclick="switchTab('products')" id="tab-btn-products" class="px-4 py-2 rounded-full bg-zinc-100 text-zinc-900 transition shrink-0">Candle Inventory</button>
+        <button onclick="switchTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-full bg-zinc-900 text-zinc-400 hover:bg-zinc-800 transition shrink-0">Customer Orders</button>
+        <button onclick="switchTab('inquiries')" id="tab-btn-inquiries" class="px-4 py-2 rounded-full bg-zinc-900 text-zinc-400 hover:bg-zinc-800 transition shrink-0">Custom Inquiries</button>
+      </div>
+
+      <!-- Tab 1: Products -->
+      <div id="tab-products" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-white">Candle Catalog & Stock</h2>
+          <button onclick="openProductModal()" class="px-4 py-2 rounded-full bg-zinc-100 hover:bg-white text-zinc-900 text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+            <i class="fa-solid fa-plus text-[10px]"></i>
+            <span>Add Candle</span>
+          </button>
+        </div>
+
+        <div class="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-zinc-300">
+              <thead class="bg-zinc-950 text-zinc-400 uppercase text-[9px] tracking-wider border-b border-zinc-800">
+                <tr>
+                  <th class="py-3 px-3.5">Candle</th>
+                  <th class="py-3 px-3.5">Category</th>
+                  <th class="py-3 px-3.5">Price (LKR)</th>
+                  <th class="py-3 px-3.5">Stock</th>
+                  <th class="py-3 px-3.5">Scent</th>
+                  <th class="py-3 px-3.5 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table" class="divide-y divide-zinc-800/60"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Orders -->
+      <div id="tab-orders" class="hidden space-y-4">
+        <h2 class="font-serif text-lg sm:text-xl font-bold text-white">Customer Orders</h2>
+        <div class="bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-zinc-300">
+              <thead class="bg-zinc-950 text-zinc-400 uppercase text-[9px] tracking-wider border-b border-zinc-800">
+                <tr>
+                  <th class="py-3 px-3.5">Order ID</th>
+                  <th class="py-3 px-3.5">Customer</th>
+                  <th class="py-3 px-3.5">Phone / City</th>
+                  <th class="py-3 px-3.5">Total</th>
+                  <th class="py-3 px-3.5">Status</th>
+                  <th class="py-3 px-3.5 text-right">Update</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-table" class="divide-y divide-zinc-800/60"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Inquiries -->
+      <div id="tab-inquiries" class="hidden space-y-4">
+        <h2 class="font-serif text-lg sm:text-xl font-bold text-white">Custom Inquiries</h2>
+        <div id="admin-inquiries-list" class="space-y-3"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Product Modal -->
+  <div id="product-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-5 sm:p-7 max-w-lg w-full text-zinc-200 space-y-3.5 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-2.5">
+        <h3 id="product-modal-title" class="font-serif text-lg font-bold text-white">Add Candle</h3>
+        <button onclick="closeProductModal()" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form onsubmit="handleSaveProduct(event)" class="space-y-2.5 text-xs">
+        <input type="hidden" id="prod-id">
+        
+        <div>
+          <label class="block font-semibold mb-1">Candle Name *</label>
+          <input type="text" id="prod-name" required class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block font-semibold mb-1">Category</label>
+            <select id="prod-cat" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+              <option value="Sculpted">Tree Candles</option>
+              <option value="Floral">Floral Roses</option>
+              <option value="Jar Candles">Jar Candles</option>
+              <option value="Gift Sets">Gift Sets</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Price (LKR) *</label>
+            <input type="number" id="prod-price" required class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block font-semibold mb-1">Original Price</label>
+            <input type="number" id="prod-orig-price" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Stock Count</label>
+            <input type="number" id="prod-stock" value="10" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Scent / Fragrance</label>
+          <input type="text" id="prod-scent" placeholder="Pure Ceylon Cinnamon" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+        </div>
+
+        <!-- Burn Time & Net Weight (Grid Layout) -->
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block font-semibold mb-1">Burn Time</label>
+            <input type="text" id="prod-burn" placeholder="e.g. 40+ Hours" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Net Weight</label>
+            <input type="text" id="prod-weight" placeholder="e.g. 220g" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+          </div>
+        </div>
+
+        <!-- Available Colors -->
+        <div>
+          <label class="block font-semibold mb-1">Available Colors (කොමාවලින් වෙන්කර ලියන්න)</label>
+          <input type="text" id="prod-colors" placeholder="e.g. Natural Amber, Warm Ivory, Spiced Bark" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Image URL</label>
+          <input type="url" id="prod-image" placeholder="https://..." class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white">
+        </div>
+
+        <div>
+          <label class="block font-semibold mb-1">Description</label>
+          <textarea id="prod-desc" rows="2" class="w-full px-3.5 py-2 rounded-xl bg-zinc-950 border border-zinc-700 text-white"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-zinc-100 hover:bg-white text-zinc-900 font-bold transition mt-2">
+          Save Candle
+        </button>
+      </form>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function verifyGatekeeper() {
+      const pin = document.getElementById("gatekeeper-pin").value.trim();
+      if (pin === window.APP_CONFIG.adminPin) {
+        sessionStorage.setItem("pris_admin_auth", "true");
+        document.getElementById("gatekeeper-modal").classList.add("hidden");
+        document.getElementById("admin-main").classList.remove("hidden");
+        loadAdminDashboard();
+      } else {
+        alert("Access Denied: Incorrect PIN!");
+      }
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem("pris_admin_auth");
+      window.location.href = "index.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (sessionStorage.getItem("pris_admin_auth") === "true") {
+        document.getElementById("gatekeeper-modal").classList.add("hidden");
+        document.getElementById("admin-main").classList.remove("hidden");
+        loadAdminDashboard();
+      }
+    });
+
+    function loadAdminDashboard() {
+      listenAdminProducts();
+      listenAdminOrders();
+      listenAdminInquiries();
+    }
+
+    function switchTab(tab) {
+      document.getElementById("tab-products").classList.add("hidden");
+      document.getElementById("tab-orders").classList.add("hidden");
+      document.getElementById("tab-inquiries").classList.add("hidden");
+
+      document.getElementById("tab-btn-products").className = "px-4 py-2 rounded-full bg-zinc-900 text-zinc-400 transition shrink-0";
+      document.getElementById("tab-btn-orders").className = "px-4 py-2 rounded-full bg-zinc-900 text-zinc-400 transition shrink-0";
+      document.getElementById("tab-btn-inquiries").className = "px-4 py-2 rounded-full bg-zinc-900 text-zinc-400 transition shrink-0";
+
+      document.getElementById(`tab-${tab}`).classList.remove("hidden");
+      document.getElementById(`tab-btn-${tab}`).className = "px-4 py-2 rounded-full bg-zinc-100 text-zinc-900 transition shrink-0";
+    }
+
+    // Live Orders Listener
+    function listenAdminOrders() {
+      if (window.fbDb) {
+        window.fbDb.collection("orders").onSnapshot(snapshot => {
+          let orders = [];
+          snapshot.forEach(doc => orders.push(doc.data()));
+          orders.sort((a,b) => new Date(b.date || 0) - new Date(a.date || 0));
+          localStorage.setItem("pris_orders", JSON.stringify(orders));
+          renderOrdersTable(orders);
+        }, err => {
+          renderOrdersTable(JSON.parse(localStorage.getItem("pris_orders") || "[]"));
+        });
+      } else if (window.fbRtdb) {
+        window.fbRtdb.ref("orders").on("value", snapshot => {
+          const data = snapshot.val();
+          let orders = data ? Object.values(data) : [];
+          orders.sort((a,b) => new Date(b.date || 0) - new Date(a.date || 0));
+          localStorage.setItem("pris_orders", JSON.stringify(orders));
+          renderOrdersTable(orders);
+        });
+      } else {
+        renderOrdersTable(JSON.parse(localStorage.getItem("pris_orders") || "[]"));
+      }
+    }
+
+    function renderOrdersTable(orders) {
+      document.getElementById("stat-orders-count").textContent = orders.length;
+      const tbody = document.getElementById("admin-orders-table");
+      if (orders.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-6 text-zinc-500">No orders logged yet.</td></tr>`;
+        return;
+      }
+      let html = "";
+      orders.forEach(o => {
+        html += `
+          <tr class="hover:bg-zinc-800/40">
+            <td class="py-3 px-3.5 font-mono font-bold text-white">${o.orderId}</td>
+            <td class="py-3 px-3.5 font-bold text-white">${o.customer ? o.customer.name : 'Customer'}</td>
+            <td class="py-3 px-3.5">${o.customer ? o.customer.phone : '-'}<br><span class="text-zinc-500">${o.customer ? o.customer.city : ''}</span></td>
+            <td class="py-3 px-3.5 font-bold text-white">Rs. ${(o.total || 0).toLocaleString()}</td>
+            <td class="py-3 px-3.5"><span class="px-2 py-0.5 rounded-full text-[9px] font-bold border border-zinc-700 bg-zinc-800 text-zinc-200">${o.status || 'Pending'}</span></td>
+            <td class="py-3 px-3.5 text-right">
+              <select onchange="updateOrderStatus('${o.orderId}', this.value)" class="bg-zinc-950 border border-zinc-700 text-white rounded-lg px-2 py-1 text-xs">
+                <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                <option value="Confirmed" ${o.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+                <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+              </select>
+            </td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+    function updateOrderStatus(orderId, newStatus) {
+      if (window.fbDb) {
+        window.fbDb.collection("orders").doc(orderId).update({ status: newStatus }).catch(e => console.warn(e));
+      }
+      if (window.fbRtdb) {
+        window.fbRtdb.ref("orders/" + orderId).update({ status: newStatus }).catch(e => console.warn(e));
+      }
+      let orders = JSON.parse(localStorage.getItem("pris_orders") || "[]");
+      const order = orders.find(o => o.orderId === orderId);
+      if (order) {
+        order.status = newStatus;
+        localStorage.setItem("pris_orders", JSON.stringify(orders));
+        renderOrdersTable(orders);
+        showToast("Status updated");
+      }
+    }
+
+    // Live Inquiries Listener
+    function listenAdminInquiries() {
+      if (window.fbDb) {
+        window.fbDb.collection("inquiries").onSnapshot(snapshot => {
+          let inqs = [];
+          snapshot.forEach(doc => inqs.push(doc.data()));
+          inqs.sort((a,b) => new Date(b.date || 0) - new Date(a.date || 0));
+          localStorage.setItem("pris_inquiries", JSON.stringify(inqs));
+          renderInquiriesList(inqs);
+        }, err => renderInquiriesList(JSON.parse(localStorage.getItem("pris_inquiries") || "[]")));
+      } else if (window.fbRtdb) {
+        window.fbRtdb.ref("inquiries").on("value", snapshot => {
+          const data = snapshot.val();
+          let inqs = data ? Object.values(data) : [];
+          inqs.sort((a,b) => new Date(b.date || 0) - new Date(a.date || 0));
+          localStorage.setItem("pris_inquiries", JSON.stringify(inqs));
+          renderInquiriesList(inqs);
+        });
+      } else {
+        renderInquiriesList(JSON.parse(localStorage.getItem("pris_inquiries") || "[]"));
+      }
+    }
+
+    function renderInquiriesList(inqs) {
+      document.getElementById("stat-inq-count").textContent = inqs.length;
+      const container = document.getElementById("admin-inquiries-list");
+      if (inqs.length === 0) {
+        container.innerHTML = `<div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 text-center text-zinc-500 text-xs">No inquiries logged yet.</div>`;
+        return;
+      }
+      let html = "";
+      inqs.forEach(i => {
+        html += `
+          <div class="bg-zinc-900 p-4 rounded-2xl border border-zinc-800 text-xs space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white">${i.name} (${i.phone})</span>
+              <span class="text-zinc-500 text-[10px]">${new Date(i.date || Date.now()).toLocaleDateString()}</span>
+            </div>
+            <p class="text-zinc-300"><strong>Type:</strong> ${i.type} ${i.qty ? `| Qty: ${i.qty}` : ''}</p>
+            <p class="text-zinc-400 bg-zinc-950 p-2.5 rounded-xl border border-zinc-800/80">${i.msg}</p>
+            <div class="text-right pt-1">
+              <a href="https://wa.me/${(i.phone || '').replace(/[^0-9]/g, '')}" target="_blank" class="text-emerald-400 hover:underline">
+                <i class="fa-brands fa-whatsapp mr-1"></i> Reply WhatsApp
+              </a>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    // Products Sync
+    function listenAdminProducts() {
+      renderProductsTable(getProducts());
+    }
+
+    function renderProductsTable(products) {
+      document.getElementById("stat-products-count").textContent = products.length;
+      const tbody = document.getElementById("admin-products-table");
+      let html = "";
+      products.forEach(p => {
+        html += `
+          <tr class="hover:bg-zinc-800/40">
+            <td class="py-3 px-3.5 flex items-center gap-2.5">
+              <img src="${p.image}" class="w-9 h-9 object-cover rounded-xl border border-zinc-800 shrink-0">
+              <span class="font-bold text-white truncate">${p.name}</span>
+            </td>
+            <td class="py-3 px-3.5 text-zinc-400">${p.category}</td>
+            <td class="py-3 px-3.5 font-bold text-white">Rs. ${(p.price || 0).toLocaleString()}</td>
+            <td class="py-3 px-3.5">${p.stock || 0}</td>
+            <td class="py-3 px-3.5 text-zinc-400">${p.scent || '-'}</td>
+            <td class="py-3 px-3.5 text-right space-x-2 shrink-0">
+              <button onclick="editProduct('${p.id}')" class="text-zinc-300 hover:text-white p-1"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button onclick="deleteProduct('${p.id}')" class="text-red-400 hover:text-red-300 p-1"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = html;
+    }
+
+   function openProductModal() {
+  document.getElementById("product-modal-title").textContent = "Add Candle";
+  document.getElementById("prod-id").value = "";
+  document.getElementById("prod-name").value = "";
+  document.getElementById("prod-price").value = "";
+  document.getElementById("prod-orig-price").value = "";
+  document.getElementById("prod-stock").value = "10";
+  document.getElementById("prod-scent").value = "";
+  document.getElementById("prod-burn").value = "";
+  document.getElementById("prod-weight").value = "";
+  document.getElementById("prod-colors").value = "";
+  document.getElementById("prod-image").value = "";
+  document.getElementById("prod-desc").value = "";
+  document.getElementById("product-modal").classList.remove("hidden");
+}
+
+    function closeProductModal() { document.getElementById("product-modal").classList.add("hidden"); }
+
+    function handleSaveProduct(e) {
+      e.preventDefault();
+      const id = document.getElementById("prod-id").value || ("p_" + Date.now());
+      const name = document.getElementById("prod-name").value.trim();
+      const category = document.getElementById("prod-cat").value;
+      const price = parseFloat(document.getElementById("prod-price").value) || 0;
+      const originalPrice = parseFloat(document.getElementById("prod-orig-price").value) || (price + 300);
+      const stock = parseInt(document.getElementById("prod-stock").value) || 10;
+      const scent = document.getElementById("prod-scent").value.trim() || "Natural Ceylon Cinnamon";
+      const image = document.getElementById("prod-image").value.trim() || "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80";
+      const description = document.getElementById("prod-desc").value.trim();
+
+// 1. කලින් අගය ගන්න පේළිය උඩින් තියන්න:
+      const burnTime = document.getElementById("prod-burn").value.trim() || "30+ Hours";
+
+      // 2. ඊට පස්සේ object එක ඇතුළට burnTime එකතු කරන්න:
+      const productObj = {
+        id, name, category, price, originalPrice, stock, scent, burnTime, image, description,
+        badge: "Artisan", rating: 5.0, reviews: 1, weight: "220g"
+      };
+
+      if (window.fbDb) {
+        window.fbDb.collection("products").doc(id).set(productObj).catch(e => console.warn(e));
+      }
+      if (window.fbRtdb) {
+        window.fbRtdb.ref("products/" + id).set(productObj).catch(e => console.warn(e));
+      }
+
+      let products = getProducts();
+      const idx = products.findIndex(p => p.id === id);
+      if (idx >= 0) products[idx] = productObj;
+      else products.push(productObj);
+      saveProducts(products);
+
+      closeProductModal();
+      renderProductsTable(products);
+      showToast("Candle saved");
+    }
+
+    function editProduct(id) {
+      const product = getProducts().find(p => p.id === id);
+      if (!product) return;
+      document.getElementById("product-modal-title").textContent = "Edit Candle";
+      document.getElementById("prod-id").value = product.id;
+      document.getElementById("prod-name").value = product.name;
+      document.getElementById("prod-cat").value = product.category;
+      document.getElementById("prod-price").value = product.price;
+      document.getElementById("prod-orig-price").value = product.originalPrice;
+      document.getElementById("prod-stock").value = product.stock;
+      document.getElementById("prod-scent").value = product.scent;
+      document.getElementById("prod-image").value = product.image;
+      document.getElementById("prod-desc").value = product.description;
+      document.getElementById("product-modal").classList.remove("hidden");
+    }
+
+    function deleteProduct(id) {
+      if (!confirm("Delete this candle?")) return;
+      if (window.fbDb) {
+        window.fbDb.collection("products").doc(id).delete().catch(e => console.warn(e));
+      }
+      if (window.fbRtdb) {
+        window.fbRtdb.ref("products/" + id).remove().catch(e => console.warn(e));
+      }
+      saveProducts(getProducts().filter(p => p.id !== id));
+      renderProductsTable(getProducts());
+      showToast("Deleted");
+    }
+  </script>
+</body>
+</html>

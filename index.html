@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>PRIS Candles | Artisanal Ceylon Cinnamon & Scented Candles Sri Lanka</title>
+  <meta name="description" content="Handcrafted Ceylon cinnamon candles, floral rose shapes, and aromatherapy jar candles poured in Kosgoda, Sri Lanka. Islandwide delivery available.">
+  <meta name="keywords" content="candles sri lanka, ceylon cinnamon candles, hand poured candles, aromatherapy candles, kosgoda, wedding favors, PRIS candles">
+  <meta name="author" content="PRIS Candles">
+  <meta name="robots" content="index, follow">
+
+  <!-- Social Media & WhatsApp Preview (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PRIS Candles | Artisanal Ceylon Cinnamon Candles">
+  <meta property="og:description" content="Hand-poured cinnamon & botanical candles made in Kosgoda, Sri Lanka.">
+  <meta property="og:image" content="https://i.ibb.co/tPXMYjJK/ammi-1.png">
+  <meta property="og:url" content="https://896625.netlify.app/">
+
+  <link rel="icon" type="image/png" href="https://i.ibb.co/tPXMYjJK/ammi-1.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#FAFAF9',
+              card: '#FFFFFF',
+              darkBg: '#09090B',
+              darkCard: '#18181B',
+              darkBorder: '#27272A',
+              amber: '#D97706',
+              amberLight: '#F59E0B'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-brand-cream dark:bg-brand-darkBg text-zinc-900 dark:text-zinc-100 font-sans antialiased transition-colors duration-300">
+
+  <!-- Minimalist Top Bar (Centered, Single-Line on Mobile) -->
+  <div class="bg-zinc-950 text-zinc-300 text-[11px] sm:text-xs py-2 px-3 sm:px-4 text-center border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+      <span class="inline-flex items-center gap-1.5 font-medium tracking-wide">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0 animate-pulse"></span>
+        <span>Free Worldwide Delivery on Orders Over Rs. 3,500</span>
+      </span>
+      <span class="hidden sm:inline-block text-zinc-600">•</span>
+      <span class="hidden md:inline-flex items-center text-zinc-400">
+        
+      </span>
+      <span class="hidden sm:inline-block text-zinc-600">•</span>
+      
+    </div>
+  </div>
+
+  <!-- Perfectly Responsive Header (NO OVERLAPS ON ANY MOBILE SCREEN) -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-brand-darkBg/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-brand-darkBorder transition-colors">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+        <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Candles Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain shrink-0">
+        <div class="min-w-0">
+          <span class="font-serif text-lg sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-white truncate block">PRIS Candles</span>
+          <span class="hidden sm:block text-[9px] uppercase tracking-widest text-zinc-400 dark:text-zinc-500 font-bold -mt-0.5">Artisanal Ceylon Wax</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300">
+        <a href="index.html" class="text-zinc-900 dark:text-white border-b-2 border-zinc-900 dark:border-white pb-1 font-bold">Home</a>
+        <a href="shop.html" class="hover:text-zinc-900 dark:hover:text-white transition">Catalog</a>
+        <a href="inquiry.html" class="hover:text-zinc-900 dark:hover:text-white transition">Custom Orders</a>
+        <a href="checkout.html" class="hover:text-zinc-900 dark:hover:text-white transition">Checkout</a>
+      </nav>
+
+      <!-- Right Actions (Proper Mobile Spacing) -->
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        
+        <!-- Dark / Light Theme Toggle -->
+        <button onclick="toggleTheme()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-zinc-200 dark:border-brand-darkBorder bg-white dark:bg-brand-darkCard hover:border-zinc-400 flex items-center justify-center transition text-xs" title="Toggle Dark/Light Mode">
+          <i class="theme-toggle-icon fa-solid fa-moon text-zinc-700 dark:text-amber-400"></i>
+        </button>
+
+        <!-- Customer Account (Desktop only in top bar) -->
+        <button onclick="openAuthModal()" class="hidden md:flex items-center gap-2 px-3.5 py-2 rounded-full border border-zinc-200 dark:border-brand-darkBorder bg-white dark:bg-brand-darkCard hover:border-zinc-400 text-xs font-semibold text-zinc-700 dark:text-zinc-200 transition">
+          <i id="auth-btn-icon" class="fa-regular fa-user text-zinc-600 dark:text-zinc-300"></i>
+          <span id="auth-btn-text">Account</span>
+        </button>
+
+        <!-- Cart Bag Button -->
+        <button onclick="openCartDrawer()" class="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:opacity-90 transition flex items-center justify-center shadow-sm">
+          <i class="fa-solid fa-basket-shopping text-xs sm:text-sm"></i>
+          <span class="cart-badge-count absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-amber-500 text-white text-[9px] sm:text-[10px] font-extrabold flex items-center justify-center shadow" style="display:none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden w-8 h-8 flex items-center justify-center rounded-full border border-zinc-200 dark:border-brand-darkBorder bg-white dark:bg-brand-darkCard text-zinc-800 dark:text-zinc-200 text-xs hover:border-zinc-400">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Down Menu Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/98 dark:bg-brand-darkBg/98 backdrop-blur-xl border-b border-zinc-200 dark:border-brand-darkBorder px-4 py-4 space-y-3 text-sm font-semibold shadow-2xl transition-all">
+      <!-- Customer Account in Mobile Menu -->
+      <button onclick="openAuthModal(); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full flex items-center justify-between p-3 rounded-2xl bg-zinc-100/80 dark:bg-brand-darkCard border border-zinc-200/80 dark:border-zinc-800 text-xs font-semibold text-zinc-800 dark:text-zinc-200">
+        <div class="flex items-center gap-2.5">
+          <i id="mobile-auth-icon" class="fa-regular fa-circle-user text-zinc-400 text-sm"></i>
+          <span id="mobile-auth-text">Account & Delivery Address</span>
+        </div>
+        <i class="fa-solid fa-chevron-right text-[10px] text-zinc-400"></i>
+      </button>
+
+<!-- Desktop Navigation Links (Line 70–76) -->
+<nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-300">
+  <a href="index.html" class="text-zinc-900 dark:text-white border-b-2 border-zinc-900 dark:border-white pb-1 font-bold">Home</a>
+  <a href="shop.html" class="hover:text-zinc-900 dark:hover:text-white transition">Catalog</a>
+  <a href="inquiry.html" class="hover:text-zinc-900 dark:hover:text-white transition">Custom Orders</a>
+  <a href="checkout.html" class="hover:text-zinc-900 dark:hover:text-white transition">Checkout</a>
+</nav>
+
+      <!-- Quick Contact in Mobile Menu -->
+      <div class="pt-3 border-t border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+        <span class="text-xs text-zinc-500">Order Hotline:</span>
+        <a href="https://wa.me/94760753587" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-700 text-white text-xs font-semibold shadow-sm">
+          <i class="fa-brands fa-whatsapp"></i> 076 075 3587
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Modern Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-28">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Left Column Copy -->
+      <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-brand-darkCard text-zinc-700 dark:text-zinc-300 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Pure Ceylon Cinnamon Infusion</span>
+        </div>
+
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.18]">
+          Natural Warmth & <br class="hidden sm:inline">
+          <span class="italic font-normal">Modern Serenity</span> for <br>
+          Every Living Space.
+        </h1>
+
+        <p class="text-zinc-600 dark:text-zinc-400 text-xs sm:text-base max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+          Poured by hand in small batches in Kosgoda, Sri Lanka. Crafted with premium wax, stearic acid for soot-free longer burn, and authentic Ceylon cinnamon essential oils.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+          <a href="shop.html" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2.5 shadow-md">
+            <span>Explore Collection</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+
+          <a href="https://wa.me/94760753587?text=Hi%20PRIS%20Candles,%20I%20would%20like%20to%20order%20cinnamon%20candles!" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-brand-darkCard hover:border-zinc-900 dark:hover:border-white text-zinc-900 dark:text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-sm">
+            <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i>
+            <span>Order on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Metric Badges -->
+        <div class="pt-6 border-t border-zinc-200 dark:border-zinc-800 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+          <div>
+            <p class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">100%</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">Hand-Poured</p>
+          </div>
+          <div>
+            <p class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">4+ Hrs</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">Stable Burn</p>
+          </div>
+          <div>
+            <p class="font-serif text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">Sri Lankan</p>
+            <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">Product</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Visual Showcase -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative mx-auto max-w-sm sm:max-w-md rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-brand-darkCard shadow-2xl p-2.5 sm:p-3.5 group cursor-pointer" onclick="openProductDetailsModal('p1')">
+          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80" alt="Ceylon Cinnamon Candle" class="w-full h-72 sm:h-96 object-cover rounded-2xl group-hover:scale-105 transition duration-700">
+          
+          <!-- Modern Minimal Badge -->
+          <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-zinc-200/60 dark:border-zinc-800 shadow-xl flex items-center justify-between">
+            <div>
+              <span class="text-[9px] uppercase font-bold text-zinc-400">Signature Piece • Click to View</span>
+              <h3 class="font-serif text-sm sm:text-base font-bold text-zinc-900 dark:text-white">Ceylon Forest Tree Candle</h3>
+              <p class="text-[11px] text-zinc-500">Pure Cinnamon Scent • 3 Color Options</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[9px] line-through text-zinc-400">Rs. 1,800</span>
+              <p class="text-base sm:text-lg font-bold text-zinc-900 dark:text-amber-400">Rs. 1,500</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clean Feature Pillars -->
+  <section class="border-y border-zinc-200/80 dark:border-zinc-800 py-8 bg-white dark:bg-brand-darkCard transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+        
+        <div class="space-y-1">
+          <div class="w-9 h-9 mx-auto rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 flex items-center justify-center text-xs mb-1.5">
+            <i class="fa-solid fa-fire-flame-simple"></i>
+          </div>
+          <h4 class="font-bold text-zinc-900 dark:text-white text-xs">Ceylon Cinnamon</h4>
+          <p class="text-[10px] text-zinc-500">Natural botanical bark</p>
+        </div>
+
+        <div class="space-y-1">
+          <div class="w-9 h-9 mx-auto rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 flex items-center justify-center text-xs mb-1.5">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h4 class="font-bold text-zinc-900 dark:text-white text-xs">Long Stable Burn</h4>
+          <p class="text-[10px] text-zinc-500">Enhanced stearic formula</p>
+        </div>
+
+        <div class="space-y-1">
+          <div class="w-9 h-9 mx-auto rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 flex items-center justify-center text-xs mb-1.5">
+            <i class="fa-solid fa-box"></i>
+          </div>
+          <h4 class="font-bold text-zinc-900 dark:text-white text-xs">Islandwide Courier</h4>
+          <p class="text-[10px] text-zinc-500">Secure box padding</p>
+        </div>
+
+        <div class="space-y-1">
+          <div class="w-9 h-9 mx-auto rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 flex items-center justify-center text-xs mb-1.5">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h4 class="font-bold text-zinc-900 dark:text-white text-xs">Direct WhatsApp</h4>
+          <p class="text-[10px] text-zinc-500">Order verification</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Catalog -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-3">
+      <div>
+        <span class="text-xs uppercase font-extrabold tracking-widest text-zinc-400">Curated Collection</span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mt-1">Signature Candles</h2>
+      </div>
+      <a href="shop.html" class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-zinc-900 dark:text-zinc-200 hover:opacity-75 transition">
+        <span>View Full Catalog</span>
+        <i class="fa-solid fa-arrow-right text-[9px]"></i>
+      </a>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="home-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"></div>
+  </section>
+
+  <!-- Workshop Heritage Section -->
+  <section class="py-14 sm:py-20 bg-zinc-100/70 dark:bg-zinc-900/40 border-y border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+        <div class="space-y-4">
+          <span class="text-xs uppercase font-extrabold tracking-widest text-zinc-400">Our Heritage</span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white leading-tight">
+            Hand-Poured in Kosgoda, Sri Lanka
+          </h2>
+          <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed font-normal">
+            PRIS Candles began with a passion for bringing genuine Ceylon cinnamon into peaceful, modern living environments. Every candle is carefully poured by hand, balanced with pure waxes, and scented with natural spices.
+          </p>
+          <div class="pt-2 flex items-center gap-6 border-t border-zinc-200 dark:border-zinc-800">
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">Kosgoda</p>
+              <p class="text-[11px] text-zinc-500">Workshop Base</p>
+            </div>
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">Pure Wax</p>
+              <p class="text-[11px] text-zinc-500">Soot-Free Formula</p>
+            </div>
+            <div>
+              <p class="font-serif text-xl sm:text-2xl font-bold text-amber-600 dark:text-amber-400">Islandwide</p>
+              <p class="text-[11px] text-zinc-500">Courier Delivery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1570823635306-250abb06d4b3?auto=format&fit=crop&w=800&q=80" alt="Artisan Candle Crafting" class="rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl object-cover w-full h-64 sm:h-80">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer Overlay & Drawer -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity" onclick="closeCartDrawer()"></div>
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-brand-darkBg z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between border-l border-zinc-200 dark:border-brand-darkBorder">
+    <div class="p-5 border-b border-zinc-200 dark:border-brand-darkBorder flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Logo" class="w-8 h-8 object-contain">
+        <div>
+          <h3 class="font-serif text-base font-bold text-zinc-900 dark:text-white">Your Shopping Bag</h3>
+          <p class="text-[11px] text-zinc-500"><span class="cart-badge-count font-bold text-zinc-900 dark:text-white">0</span> items</p>
+        </div>
+      </div>
+      <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 flex items-center justify-center text-xs"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-2"></div>
+
+    <div class="p-5 bg-zinc-50 dark:bg-brand-darkCard border-t border-zinc-200 dark:border-brand-darkBorder space-y-3">
+      <div class="space-y-1.5 text-xs text-zinc-600 dark:text-zinc-300">
+        <div class="flex justify-between">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal" class="font-bold text-zinc-900 dark:text-white">Rs. 0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Delivery (Kosgoda Islandwide):</span>
+          <span id="cart-shipping" class="font-bold text-zinc-900 dark:text-white">Rs. 350</span>
+        </div>
+        <div class="flex justify-between text-sm font-bold text-zinc-900 dark:text-white pt-2 border-t border-zinc-200 dark:border-zinc-800">
+          <span>Total:</span>
+          <span id="cart-total" class="font-serif text-lg font-bold">Rs. 0</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2.5 pt-1">
+        <a href="checkout.html" id="cart-checkout-btn" class="col-span-1 py-3 px-3 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-bold text-xs text-center transition flex items-center justify-center gap-1.5 shadow-sm">
+          <span>Checkout</span>
+          <i class="fa-solid fa-arrow-right text-[9px]"></i>
+        </a>
+        <button onclick="quickWhatsAppOrder()" class="col-span-1 py-3 px-3 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs text-center transition flex items-center justify-center gap-1.5 shadow-sm">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Account Modal -->
+  <div id="auth-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-white dark:bg-brand-darkCard rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-zinc-200 dark:border-brand-darkBorder relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="text-center mb-5">
+        <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Candles Logo" class="w-10 h-10 mx-auto object-contain mb-2">
+        <h3 class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white">Customer Account</h3>
+        <p class="text-xs text-zinc-500 mt-0.5">Save your delivery details for seamless 1-click orders.</p>
+      </div>
+
+      <div class="space-y-2 mb-5">
+        <button onclick="handleGoogleLogin()" class="w-full py-2.5 px-4 rounded-full border border-zinc-200 dark:border-brand-darkBorder hover:bg-zinc-50 dark:hover:bg-zinc-800 text-xs font-semibold flex items-center justify-center gap-2 text-zinc-700 dark:text-zinc-200 transition">
+          <i class="fa-brands fa-google text-red-500 text-xs"></i>
+          <span>Continue with Google</span>
+        </button>
+        <button onclick="handlePhoneLogin()" class="w-full py-2.5 px-4 rounded-full border border-zinc-200 dark:border-brand-darkBorder hover:bg-zinc-50 dark:hover:bg-zinc-800 text-xs font-semibold flex items-center justify-center gap-2 text-zinc-700 dark:text-zinc-200 transition">
+          <i class="fa-solid fa-mobile-screen text-zinc-600 dark:text-zinc-300 text-xs"></i>
+          <span>Sign In with Phone (SMS)</span>
+        </button>
+      </div>
+
+      <div class="relative flex items-center justify-center my-3">
+        <div class="border-t border-zinc-200 dark:border-zinc-800 w-full"></div>
+        <span class="bg-white dark:bg-brand-darkCard px-3 text-[9px] text-zinc-400 uppercase tracking-widest absolute">Or Delivery Info</span>
+      </div>
+
+      <form onsubmit="handleProfileSave(event)" class="space-y-2.5 text-xs">
+        <div>
+          <label class="block font-semibold mb-1">Full Name *</label>
+          <input type="text" id="auth-name" required placeholder="Kasun Perera" class="w-full px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-brand-darkBorder bg-zinc-50 dark:bg-brand-darkBg text-zinc-900 dark:text-white text-xs">
+        </div>
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block font-semibold mb-1">WhatsApp Phone *</label>
+            <input type="tel" id="auth-phone" required placeholder="0760753587" class="w-full px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-brand-darkBorder bg-zinc-50 dark:bg-brand-darkBg text-zinc-900 dark:text-white text-xs">
+          </div>
+          <div>
+            <label class="block font-semibold mb-1">Email</label>
+            <input type="email" id="auth-email" placeholder="kasun@gmail.com" class="w-full px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-brand-darkBorder bg-zinc-50 dark:bg-brand-darkBg text-zinc-900 dark:text-white text-xs">
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">Street Address *</label>
+          <input type="text" id="auth-address" required placeholder="No. 45, Temple Road" class="w-full px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-brand-darkBorder bg-zinc-50 dark:bg-brand-darkBg text-zinc-900 dark:text-white text-xs">
+        </div>
+        <div>
+          <label class="block font-semibold mb-1">City / Town *</label>
+          <input type="text" id="auth-city" required placeholder="Kosgoda" class="w-full px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-brand-darkBorder bg-zinc-50 dark:bg-brand-darkBg text-zinc-900 dark:text-white text-xs">
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-bold mt-3 transition shadow-md text-xs">
+          Save Details
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Product Details Modal (Multi-Image Gallery & Color Swatches) -->
+  <div id="product-details-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-5" onclick="if(event.target === this) closeProductDetailsModal()">
+    <div class="bg-white dark:bg-brand-darkCard rounded-[28px] sm:rounded-3xl border border-zinc-200 dark:border-brand-darkBorder max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative text-zinc-900 dark:text-zinc-100">
+      
+      <!-- Close Button -->
+      <button onclick="closeProductDetailsModal()" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 flex items-center justify-center text-xs transition" title="Close Details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="p-5 sm:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
+          
+          <!-- Left: Multi-Image Gallery -->
+          <div class="md:col-span-6 space-y-3">
+            <div class="relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 rounded-2xl sm:rounded-3xl border border-zinc-200/80 dark:border-zinc-800 aspect-square flex items-center justify-center shadow-inner">
+              <span id="modal-prod-badge" class="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-sm">
+                Best Seller
+              </span>
+              <img id="modal-main-img" src="" alt="Candle Preview" class="w-full h-full object-cover transition-all duration-300">
+            </div>
+
+            <div>
+              <p class="text-[10px] text-zinc-400 mb-1.5 font-medium flex items-center gap-1">
+                <i class="fa-solid fa-camera text-[9px]"></i> Click image to view:
+              </p>
+              <div id="modal-thumbnails-container" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"></div>
+            </div>
+          </div>
+
+          <!-- Right: Details, Color Selector & Actions -->
+          <div class="md:col-span-6 space-y-4">
+            <div>
+              <span id="modal-prod-cat" class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Sculpted</span>
+              <h2 id="modal-prod-title" class="font-serif text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mt-0.5 leading-snug">Candle Title</h2>
+              
+              <div class="flex items-center gap-2 mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">
+                <div class="flex items-center gap-1 text-amber-500">
+                  <i class="fa-solid fa-star text-[11px]"></i>
+                  <span id="modal-prod-rating" class="font-bold text-zinc-800 dark:text-zinc-200">5.0</span>
+                </div>
+                <span class="text-zinc-300 dark:text-zinc-700">•</span>
+                <span id="modal-prod-reviews" class="text-[11px]">(32 reviews)</span>
+                <span class="text-zinc-300 dark:text-zinc-700">•</span>
+                <span class="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold"><i class="fa-solid fa-check text-[9px]"></i> In Stock</span>
+              </div>
+            </div>
+
+            <div class="flex items-baseline gap-3 pt-1 border-t border-zinc-100 dark:border-zinc-800">
+              <span id="modal-prod-price" class="font-serif text-2xl font-bold text-zinc-900 dark:text-white">Rs. 1,500</span>
+              <span id="modal-prod-orig-price" class="text-xs text-zinc-400 line-through">Rs. 1,800</span>
+            </div>
+
+            <p id="modal-prod-desc" class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+              Botanical candle description.
+            </p>
+
+            <!-- Color Swatches Selection -->
+            <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-[11px] font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <i class="fa-solid fa-palette text-amber-500 text-[10px]"></i>
+                  <span>Select Color:</span>
+                </label>
+                <span id="modal-selected-color-label" class="text-xs font-semibold text-amber-600 dark:text-amber-400">Natural Amber</span>
+              </div>
+              <div id="modal-colors-container" class="flex flex-wrap gap-2 pt-0.5"></div>
+            </div>
+
+            <!-- Specs Mini Grid -->
+            <div class="grid grid-cols-3 gap-2 py-2 px-3 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/70 dark:border-zinc-800 text-center text-[10px]">
+              <div>
+                <span class="text-zinc-400 block font-medium">Scent</span>
+                <span id="modal-prod-scent" class="font-bold text-zinc-800 dark:text-zinc-200 truncate block mt-0.5">Ceylon Cinnamon</span>
+              </div>
+              <div class="border-x border-zinc-200 dark:border-zinc-800 px-1">
+                <span class="text-zinc-400 block font-medium">Burn Time</span>
+                <span id="modal-prod-burn" class="font-bold text-zinc-800 dark:text-zinc-200 block mt-0.5">30+ Hours</span>
+              </div>
+              <div>
+                <span class="text-zinc-400 block font-medium">Weight</span>
+                <span id="modal-prod-weight" class="font-bold text-zinc-800 dark:text-zinc-200 block mt-0.5">220g</span>
+              </div>
+            </div>
+
+            <!-- Quantity & Actions -->
+            <div class="pt-2 space-y-2">
+              <div class="flex items-center gap-3">
+                <div class="flex items-center border border-zinc-200 dark:border-zinc-800 rounded-full bg-zinc-50 dark:bg-zinc-900/80 px-2 py-1 shrink-0">
+                  <button onclick="updateModalQty(-1)" class="w-7 h-7 rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-xs font-bold shadow-sm hover:bg-zinc-100 transition">-</button>
+                  <span id="modal-qty-display" class="w-7 text-center text-xs font-bold text-zinc-900 dark:text-white">1</span>
+                  <button onclick="updateModalQty(1)" class="w-7 h-7 rounded-full bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-xs font-bold shadow-sm hover:bg-zinc-100 transition">+</button>
+                </div>
+
+                <button onclick="addModalProductToCart()" class="flex-1 py-3 px-4 rounded-full bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-md">
+                  <i class="fa-solid fa-basket-shopping text-xs"></i>
+                  <span>Add to Bag</span>
+                </button>
+              </div>
+
+              <button onclick="orderModalProductViaWhatsApp()" class="w-full py-2.5 px-4 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Direct WhatsApp Order (Selected Color)</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 text-zinc-400 pt-12 pb-6 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-zinc-800">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-2.5">
+            <img src="https://i.ibb.co/tPXMYjJK/ammi-1.png" alt="PRIS Candles Logo" class="w-8 h-8 object-contain">
+            <span class="font-serif text-xl font-bold text-white">PRIS Candles</span>
+          </div>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Pure Ceylon cinnamon candles, artisanal rose florals, and aromatherapy jar candles designed for enduring warmth.
+          </p>
+          <div class="text-xs space-y-1 text-zinc-300">
+            <p><i class="fa-solid fa-location-dot text-amber-400 mr-2"></i> Kosgoda, Sri Lanka</p>
+            <p><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> WhatsApp: 076 075 3587</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Catalog</h4>
+          <ul class="space-y-1.5 text-xs text-zinc-400">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="shop.html" class="hover:text-white transition">All Candles</a></li>
+            <li><a href="inquiry.html" class="hover:text-white transition">Custom Orders</a></li>
+            <li><a href="checkout.html" class="hover:text-white transition">Checkout</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Artisan Care</h4>
+          <ul class="space-y-1.5 text-xs text-zinc-400">
+            <li><span>Islandwide Courier Delivery</span></li>
+            <li><span>Secure Box Padding</span></li>
+            <li><span>Pure Ceylon Cinnamon Essence</span></li>
+            <li><span>Clean Extended Burn</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Direct Orders</h4>
+          <p class="text-xs text-zinc-400 mb-2.5">Reach out directly to our Kosgoda workshop.</p>
+          <a href="https://wa.me/94760753587" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold text-xs transition">
+            <i class="fa-brands fa-whatsapp text-sm text-emerald-400"></i>
+            <span>076 075 3587</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-3">
+        <div>
+          &copy; 2026 PRIS Candles. All rights reserved. Kosgoda, Sri Lanka.
+        </div>
+        <div class="flex items-center gap-1 font-medium">
+          <span>Made with passion by</span>
+          <a href="https://studioaxis.online" target="_blank" class="text-zinc-300 hover:text-white underline transition">
+            Studio Axis
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase Cloud SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.getElementById("home-products-grid");
+      if (!grid) return;
+      const products = getProducts().slice(0, 3);
+
+      let html = "";
+      products.forEach(p => {
+        const colorsHtml = (p.colors || []).map(c => `
+          <button onclick="event.stopPropagation(); openProductDetailsModal('${p.id}', '${c.name}')" title="${c.name}" class="w-3.5 h-3.5 rounded-full border border-black/20 hover:scale-125 transition" style="background-color: ${c.hex};"></button>
+        `).join('');
+
+        html += `
+          <div class="bg-white dark:bg-brand-darkCard rounded-3xl overflow-hidden border border-zinc-200/80 dark:border-brand-darkBorder shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+            <div class="relative overflow-hidden bg-zinc-100 dark:bg-zinc-900 h-60 sm:h-64 cursor-pointer" onclick="openProductDetailsModal('${p.id}')">
+              <span class="absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-sm">
+                ${p.badge}
+              </span>
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <div class="flex items-center justify-between text-zinc-400 text-xs mb-1">
+                  <div class="flex items-center gap-1">
+                    <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                    <span class="font-bold text-zinc-800 dark:text-zinc-200 text-xs">${p.rating}</span>
+                    <span class="text-[11px]">(${p.reviews})</span>
+                  </div>
+                  <!-- Color Swatches Preview -->
+                  <div class="flex items-center gap-1">
+                    ${colorsHtml}
+                  </div>
+                </div>
+
+                <h3 onclick="openProductDetailsModal('${p.id}')" class="font-serif text-base sm:text-lg font-bold text-zinc-900 dark:text-white hover:text-amber-600 transition cursor-pointer leading-snug">${p.name}</h3>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2 mt-1">${p.description}</p>
+                <div class="mt-2 text-[11px] text-zinc-700 dark:text-zinc-300 font-medium">
+                  <i class="fa-solid fa-fire text-[9px] mr-1 text-amber-500"></i> ${p.scent}
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-zinc-100 dark:border-brand-darkBorder flex items-center justify-between gap-2">
+                <div>
+                  <span class="text-[11px] text-zinc-400 line-through">Rs. ${p.originalPrice.toLocaleString()}</span>
+                  <p class="text-lg font-serif font-bold text-zinc-900 dark:text-white">Rs. ${p.price.toLocaleString()}</p>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="openProductDetailsModal('${p.id}')" class="px-3 py-1.5 rounded-full border border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white text-zinc-700 dark:text-zinc-300 text-xs font-semibold transition" title="View details & colors">
+                    Details
+                  </button>
+                  <button onclick="addToCart('${p.id}')" class="px-3.5 py-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-semibold transition flex items-center gap-1 shadow-sm">
+                    <i class="fa-solid fa-plus text-[9px]"></i>
+                    <span>Add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+    });
+
+    function quickWhatsAppOrder() {
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast("Your bag is empty", "error");
+        return;
+      }
+      const { subtotal, shipping, total } = getCartTotals();
+      const user = getUserProfile() || {};
+
+      let msg = "*PRIS CANDLES - NEW ORDER* 🕯️%0A";
+      msg += "------------------------------%0A";
+      cart.forEach((i, idx) => {
+        msg += `${idx + 1}. *${i.name}* (${i.color || 'Standard'}) (x${i.qty}) = Rs. ${i.price * i.qty}%0A`;
+      });
+      msg += "------------------------------%0A";
+      msg += `*Subtotal:* Rs. ${subtotal}%0A`;
+      msg += `*Delivery:* Rs. ${shipping}%0A`;
+      msg += `*TOTAL AMOUNT:* Rs. ${total}%0A%0A`;
+      msg += "*Customer Delivery Details:*%0A";
+      msg += `Name: ${user.name || "Customer"}%0A`;
+      msg += `Phone: ${user.phone || "0760753587"}%0A`;
+      msg += `Address: ${user.address || "Kosgoda, Sri Lanka"}%0A`;
+      msg += `City: ${user.city || "Kosgoda"}%0A`;
+      msg += "%0APlease confirm my order availability. Thank you!";
+
+      window.open(`https://wa.me/94760753587?text=${msg}`, "_blank");
+    }
+  </script>
+</body>
+</html>
